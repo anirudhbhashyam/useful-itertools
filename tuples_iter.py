@@ -7,6 +7,9 @@ from typing import Iterator
 
 
 def take_tuples(g: Iterable[Any], *, n: int = 3) -> Iterator[tuple[Any, ...]]:
+    """
+    Progress an iterable in steps of `n`.
+    """
     it = iter(g)
     return zip(*(itertools.islice(g, i, None, n) for i, g in enumerate(itertools.tee(it, n))))
 
