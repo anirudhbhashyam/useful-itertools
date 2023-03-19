@@ -12,7 +12,11 @@ T = TypeVar("T")
 
 
 def first(g: Iterable[T], *, n: int = 1) -> Iterator[tuple[bool, T]]:
-    return zip(chain(repeat(True, n), repeat(False)), g)
+    """
+    Returns boolean values attached to the original iterable 
+    that indicates which element is the first.
+    """
+    return zip(chain(repeat(True, n), repeat(False)), iter(g))
 
 
 @pytest.mark.parametrize(
