@@ -4,7 +4,6 @@ import pytest
 
 from typing import Iterable
 from typing import Iterator
-from typing import NoReturn
 from typing import TypeVar
 
 T = TypeVar("T")
@@ -28,7 +27,7 @@ def take_tuples(g: Iterable[T], *, n: int = 3) -> Iterator[tuple[T, ...]]:
         ((), 2, []),
     ]
 )
-def test_take_tuples(input: Iterable[T], n: int, expected_output: list[tuple[T, ...]]) -> NoReturn | None:
+def test_take_tuples(input: Iterable[T], n: int, expected_output: list[tuple[T, ...]]) -> None:
     assert list(take_tuples(input, n = n)) == expected_output
 
 

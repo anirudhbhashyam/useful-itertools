@@ -3,7 +3,6 @@ from itertools import chain, repeat
 from typing import Iterable
 from typing import Iterator
 from typing import TypeVar
-from typing import NoReturn
 
 import pytest
 
@@ -27,5 +26,5 @@ def first(g: Iterable[T], *, n: int = 1) -> Iterator[tuple[bool, T]]:
         "ghe"
     ]
 )
-def test_first(iterable: Iterable[T]) -> NoReturn:
+def test_first(iterable: Iterable[T]) -> None:
     assert next(first(iterable))[1] == next(iter(iterable))
